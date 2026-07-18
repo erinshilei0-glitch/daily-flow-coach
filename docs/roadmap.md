@@ -1,10 +1,10 @@
 # Roadmap
 
-The roadmap protects the validated MVP while sequencing discovery, polish, AI testing, portfolio work, and future integrations.
+The roadmap protects the validated MVP while sequencing product discovery, calendar-aware planning, prototype refinement, AI testing, portfolio work, and future production capabilities.
 
-## Phase 1: Product Discovery
+## Phase 1: Product Discovery and MVP Definition
 
-**Goal:** Define the problem, users, product principles, and core planning model.
+**Goal:** Define the problem, users, product principles, core planning model, and MVP boundaries.
 
 - Validate flexible modules as an alternative to strict schedules
 - Define target users and key planning needs
@@ -12,47 +12,62 @@ The roadmap protects the validated MVP while sequencing discovery, polish, AI te
 - Separate weekday and weekend logic
 - Define inclusive Care / Connection customization
 - Record MVP boundaries and product decisions
+- Validate the core Today, Coach, Evening, Reflection, and Settings experience
 
-## Phase 2: MVP Prototype Polish
+Calendar sync is explicitly excluded from the Phase 1 MVP.
 
-**Goal:** Refine the existing prototype without rebuilding it or expanding the MVP.
+## Phase 2: Calendar Constraint Discovery and Prototype Integration
+
+**Goal:** Add calendar awareness as an external planning input while keeping user-selected mode authoritative.
+
+- Define supported calendar constraints, event types, and availability rules
+- Document permission, privacy, consent, and failure-state requirements
+- Prototype how meetings, appointments, travel, therapy, and family events affect the daily plan
+- Test calendar-informed adjustments across Good / Steady / Low modes
+- Confirm that calendar data never silently changes the user's selected mode
+- Preserve manual planning when calendar access is unavailable or declined
+- Evaluate a limited live calendar connection only after the prototype behavior is validated
+
+The planning relationship remains:
+
+```text
+Calendar = external constraints
+Mode = internal user state
+AI Coach = adjusts the daily plan using both
+```
+
+Calendar sync begins in Phase 2. It is not an MVP dependency and does not replace the user's self-assessment.
+
+## Phase 3: Prototype Polish and AI Validation
+
+**Goal:** Refine and systematically validate the expanded prototype without rebuilding it.
 
 - Improve visual consistency, responsive behavior, and accessibility
 - Standardize labels and supportive microcopy
-- Confirm Today, Coach, Evening, Reflection, and Settings flows
-- Validate mode-dependent module goals
-- Test weekday and weekend plan profiles
-- Preserve existing working behavior
-
-## Phase 3: AI Logic and Prompt Testing
-
-**Goal:** Make coaching behavior explicit, testable, and consistent.
-
-- Document planning inputs, adjustment rules, and output expectations
-- Test representative capacity, calendar, and care scenarios
-- Evaluate tone, feasibility, user control, and safety
-- Define failure and fallback behavior
-- Prepare future service boundaries for AI orchestration
+- Confirm Today, Coach, Evening, Reflection, Settings, and calendar-aware flows
+- Run structured AI prompt tests
+- Evaluate tone, feasibility, user control, privacy, and fallback behavior
+- Preserve validated mode, day-type, and Care / Connection behavior
 
 ## Phase 4: Portfolio Packaging
 
 **Goal:** Present the project as a clear product and AI design case study.
 
-- Add architecture, milestone, and decision documentation
-- Capture polished screenshots and an icon
+- Capture polished screenshots and create a project icon
 - Explain discovery, tradeoffs, validation, and scope decisions
 - Document what the prototype demonstrates
+- Show how calendar constraints and user-selected capacity work together
 - Prepare a concise case-study narrative
 
-## Phase 5: Future Integrations
+## Phase 5: Future Production Capabilities
 
-**Goal:** Add validated production capabilities in a deliberate order.
+**Goal:** Add production capabilities only after the core and calendar-aware experiences are validated.
 
-- Calendar sync for external constraints
-- Persistent preferences and plan history
+- Persistent preferences, plan history, and reflection data
 - Authentication and privacy controls
+- Calendar reliability, provider expansion, and synchronization hardening
 - Notifications and wearable integrations
 - Payment or subscription
 - Multi-user family sharing
 
-Calendar sync begins in this future-integration phase; it is not part of MVP core.
+These capabilities should extend the validated planning experience rather than redefine it.
