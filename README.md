@@ -8,6 +8,12 @@ Traditional planners often assume that every day has the same capacity. In real 
 
 Daily Flow Coach responds by organizing the day into flexible modules and adapting expectations to the user's current capacity.
 
+## Live prototype
+
+[Open the Daily Flow Coach prototype](https://daily-flow-coach-erin.erin-shi-lei0.chatgpt.site)
+
+The prototype is a client-side MVP with mock or in-memory behavior. It does not include accounts, persistent storage, or live calendar integration.
+
 ## Target user
 
 The primary user is a busy adult—especially a working parent, caregiver, learner, or professional—who needs enough structure to make progress without turning the day into an inflexible timetable.
