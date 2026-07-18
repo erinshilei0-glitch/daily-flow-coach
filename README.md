@@ -85,6 +85,17 @@ The working MVP has validated its core experience:
 
 This repository adds the initial documentation and portfolio structure while keeping the working prototype intact.
 
+## Documentation
+
+- [Product vision](docs/vision.md)
+- [Product architecture](docs/architecture.md)
+- [Roadmap](docs/roadmap.md)
+- [Milestones](docs/milestones.md)
+- [Decision log](docs/decision-log.md)
+- [Phase 1 completion summary](docs/phase-1-completion-summary.md)
+- [AI planning logic](prototype/ai-logic.md)
+- [Prompt tests](prototype/prompt-tests.md)
+
 ## Future roadmap
 
 The next stages focus on prototype polish, structured AI prompt testing, portfolio packaging, and later integrations. Calendar sync is a future integration rather than an MVP dependency. See [the roadmap](docs/roadmap.md) for the phased plan.
