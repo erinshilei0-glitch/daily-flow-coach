@@ -26,9 +26,10 @@
 ## Phase 1 closeout milestones
 
 - [ ] Align the default Care / Connection end time with the documented decision
-- [ ] Rebuild the prototype so rendered output matches the updated source
-- [ ] Confirm final Care / Connection and weekday/weekend wording in the working prototype
-- [ ] Connect the working prototype or deployment to this repository
+- [x] Rebuild the prototype so rendered output matches the updated source
+- [x] Confirm final Care / Connection and weekday/weekend wording in the working prototype
+- [x] Rerun the rendered prototype smoke tests successfully
+- [x] Connect the working prototype deployment to this repository
 - [ ] Add initial screenshots and a project icon
 - [x] Publish the Phase 1 completion summary
 - [ ] Mark Phase 1 complete
