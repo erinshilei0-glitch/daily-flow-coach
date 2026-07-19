@@ -1,32 +1,28 @@
 # AI Planning Logic
 
-This document describes the intended coaching behavior behind the prototype. It is a product specification for prompt and interaction testing, not a production model implementation.
+This is the intended coaching specification for prompt and interaction testing, not a production AI implementation.
 
 ## Inputs
 
-The coach considers:
-
 - User-selected mode: Good, Steady, or Low
 - Day type: weekday or weekend
-- Core module preferences and minimums
-- Care / Connection label and context
 - Completed and remaining modules
-- User-reported disruptions or priorities
-- Future calendar constraints, when integration is added
+- Per-day Movement and Learning selections
+- Care / Connection type, label, and time
+- Optional weekend priority
+- User-reported disruption or priority
+- Future calendar constraints, when Phase 2 is added
 
-## Mode selection
+## Core rules
 
-Mode represents internal capacity.
+1. Mode represents internal capacity and remains user-controlled.
+2. Day type selects the weekday or weekend profile.
+3. Mode changes the size or optionality of goals, not the user's chosen activity.
+4. Replanning adjusts the entire remaining day.
+5. Genuine care commitments and recovery are protected.
+6. Language remains specific, concise, and nonjudgmental.
 
-- **Good:** Support a fuller plan while preserving breaks and recovery.
-- **Steady:** Keep priorities moving with flexible scope and fewer assumptions.
-- **Low:** Reduce the plan to essentials, protect recovery, and remove guilt-producing extras.
-
-The coach may explain that a plan looks ambitious or constrained, but it should not override the selected mode. Only the user changes their mode.
-
-## Weekday and weekend behavior
-
-The day type changes the planning profile:
+## Day profiles
 
 - Good weekday → Standard Workday
 - Steady weekday → Flexible Workday
@@ -35,41 +31,45 @@ The day type changes the planning profile:
 - Steady weekend → Balanced Weekend
 - Low weekend → Recovery Weekend
 
-Weekday recommendations may prioritize essential work and learning. Weekend recommendations shift weight toward relationships, household needs, movement, recreation, and recovery.
+Weekends do not assume work. A separate optional priority may reweight existing modules. No focus today is valid on Recovery Weekend.
 
-## Care / Connection customization
+## Weekend priority effects
 
-Care / Connection is supplied as user context, not hard-coded as “Child Time.” Examples include child play and bedtime, couple time, elder care, family check-ins, pet care, personal connection, or a custom label.
+- **Outing:** counts toward Movement; no duplicate exercise
+- **Care / Connection:** protects or expands connection time
+- **Movement:** receives a modest mode-aware increase
+- **Learning:** receives more space while competing optional goals soften
+- **Recovery:** makes Learning and Movement optional or gentle
+- **Optional Work:** treated as an added constraint around which connection and recovery are protected
+- **No focus today:** adds no expectations
 
-The coach should:
+## Movement and Learning
 
-- Use the user's chosen label
-- Treat genuine care commitments as meaningful plan constraints
-- Avoid assuming that every user has children
-- Preserve relevant time windows when the user provides them
-- Suggest simplification rather than deletion when care is essential
+Movement may be Baduanjin, Indoor Walk, Outdoor Walk, Stretching, Mobility, Strength, Yoga, Recreation, or Custom.
 
-For Erin's personal default, the module is child play and bedtime around 7:15–8:00 PM.
+Learning may be Reading, Studying, Online Course, AI Learning, Research, Skill Practice, Creative Learning, or Custom.
 
-## Coach / Adjust Flow
+Coach must use the selected activity and adjust effort by mode rather than replacing it.
 
-When the user asks to adjust the flow, the coach should revise the entire remaining day:
+## Care / Connection and Evening
 
-1. Acknowledge the current situation without judgment.
-2. Identify essential outcomes and fixed commitments.
-3. Review all incomplete modules.
+Coach uses the selected Care / Connection label and time without assuming children or a specific household. Evening guidance may change by care type, but universal wind-down remains separate.
+
+## Adjust Flow sequence
+
+1. Acknowledge the current situation.
+2. Identify fixed commitments and essential outcomes.
+3. Review incomplete modules and shared daily activity choices.
 4. Reduce, reorder, combine, defer, or drop optional work.
-5. Protect Care / Connection, Evening Routine, and Sleep / Recovery where possible.
-6. Return a concise revised plan and explain the most important tradeoff.
-7. Invite the user to accept or further adjust the result.
+5. Protect Care / Connection, Evening Routine, and recovery.
+6. Explain the most important tradeoff.
+7. Invite acceptance or further adjustment.
 
-The coach should favor realistic completion over preserving the original task volume.
+## Week and Reflection
+
+Past days may remain not reviewed. Future days must not be treated as commitments. Weekly insight is descriptive, not scored. Reflection should use the actual selected activities and context without grading the user.
 
 ## Future calendar influence
-
-In a future phase, calendar sync will add external constraints such as meetings, appointments, therapy, travel, and family events.
-
-The planning relationship remains:
 
 ```text
 Calendar = external constraints
@@ -77,29 +77,8 @@ Mode = internal user state
 AI Coach = adjusts the daily plan using both
 ```
 
-Calendar events can:
-
-- Reserve unavailable time
-- Reveal transition or travel needs
-- Increase the need to simplify optional modules
-- Anchor care or appointment commitments
-- Help the coach suggest feasible windows
-
-Calendar events cannot:
-
-- Infer the user's internal capacity with certainty
-- Automatically replace the selected mode
-- Add unverified obligations
-- Remove the user's ability to revise the plan
+Calendar may reserve time, reveal travel or transitions, and simplify optional modules. It cannot infer capacity, replace mode, invent obligations, or remove user control.
 
 ## Output expectations
 
-A strong AI response is:
-
-- Specific enough to act on
-- Brief enough to scan
-- Consistent with the selected mode and day type
-- Inclusive of the user's Care / Connection context
-- Honest about tradeoffs
-- Supportive and nonjudgmental
-- Explicit about what changed when the flow is adjusted
+A strong response is actionable, brief, mode-appropriate, consistent with day type and selected activities, inclusive of care context, honest about tradeoffs, and explicit about what changed.
