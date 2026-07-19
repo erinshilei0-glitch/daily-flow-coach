@@ -1,51 +1,30 @@
 # Daily Flow Coach
 
-Daily Flow Coach is an AI-assisted, flexible daily planning app that helps people balance work, learning, movement, care responsibilities, evening routines, and recovery without relying on rigid minute-by-minute schedules.
+Daily Flow Coach is an AI-assisted, flexible daily planning app for people balancing work, learning, movement, care, connection, evening routines, and recovery without relying on rigid minute-by-minute schedules.
 
 ## Problem
 
-Traditional planners often assume that every day has the same capacity. In real life, energy, sleep, mood, care responsibilities, and external commitments change. When a fixed plan no longer fits, users can feel behind instead of supported.
-
-Daily Flow Coach responds by organizing the day into flexible modules and adapting expectations to the user's current capacity.
+Traditional planners often assume that every day has the same capacity. Daily Flow Coach treats changing energy, care responsibilities, and unexpected events as normal planning inputs. It organizes the day into flexible modules and adjusts expectations without framing adaptation as failure.
 
 ## Live prototype
 
 [Open the Daily Flow Coach prototype](https://daily-flow-coach-erin.erin-shi-lei0.chatgpt.site)
 
-The prototype is a client-side MVP with mock or in-memory behavior. It does not include accounts, persistent storage, or live calendar integration.
+The live prototype is a private, client-side MVP using mock or in-memory state. Choices reset after refresh. It does not include accounts, persistent storage, real notifications, a production AI service, or live calendar integration.
 
-## Target user
+## Core experience
 
-The primary user is a busy adult—especially a working parent, caregiver, learner, or professional—who needs enough structure to make progress without turning the day into an inflexible timetable.
+- Today dashboard with Good / Steady / Low selection
+- Separate weekday and weekend plan profiles
+- Whole-day Coach / Adjust Flow
+- Six genuine weekend modules plus an optional, non-scored priority
+- Per-day Movement and Learning choices shared across the prototype
+- Selectable Week cards and a descriptive Your Weekly Rhythm insight
+- Customizable Care / Connection guidance
+- Universal Evening Routine and Reflection Review
+- Settings mockup with prototype-only reminder controls
 
-## Core features
-
-- Today dashboard
-- Good / Steady / Low mode selection
-- Separate weekday and weekend planning logic
-- Flexible checklist for core daily modules
-- Customizable Care / Connection module
-- Coach / Adjust Flow support for replanning the whole day
-- Evening routine with wind-down and bedtime support
-- End-of-day Reflection Review
-- AI Learning module
-- Settings mockup
-
-## Daily modules
-
-- Work / Main Tasks
-- AI Learning
-- Movement
-- Care / Connection
-- Evening Routine
-- Reflection Review
-- Sleep / Recovery
-
-Care / Connection is intentionally customizable. It can represent child play and bedtime, couple time, elder care, a family check-in, pet care, personal connection, or another user-defined responsibility. Erin's personal default is child play and bedtime, usually around 7:15–8:00 PM.
-
-## Mode logic
-
-Mode represents the user's internal state: energy, sleep quality, mood, and capacity.
+## Planning model
 
 | Selected mode | Weekday plan | Weekend plan |
 | --- | --- | --- |
@@ -53,26 +32,37 @@ Mode represents the user's internal state: energy, sleep quality, mood, and capa
 | Steady | Flexible Workday | Balanced Weekend |
 | Low | Minimum Workday | Recovery Weekend |
 
-The user's selected mode remains authoritative. A future calendar connection may add external constraints, but it should not silently replace the user's self-assessment.
+Mode represents the user's internal state and remains authoritative.
 
-## MVP scope
+Weekdays include **Work / Main Tasks**. Weekends do not assume work or add a replacement task. Instead, users may choose an optional priority such as Care / Connection, Movement, Recovery, Home, Outing, Learning, Optional Work, Custom, or—on Recovery Weekend—No focus today. The priority reweights existing modules rather than adding work.
 
-### Included
+## Flexible daily activities
 
-- Today dashboard and mode selection
-- Weekday / weekend logic
-- Core module checklist
-- Care / Connection customization
-- Coach / Adjust Flow
-- Evening routine and Reflection Review
-- AI Learning module
-- Settings mockup
+**Movement** can vary by day: Baduanjin, Indoor Walk, Outdoor Walk, Stretching, Mobility, Strength, Yoga, Recreation, or Custom. Mode changes the expected effort, not the chosen activity. An outing may satisfy Movement without requiring separate exercise.
 
-### Excluded from the MVP
+**Learning** replaces AI Learning as the universal module name. Reading, Studying, Online Course, AI Learning, Research, Skill Practice, Creative Learning, and Custom are supported. AI Learning remains one learning type.
+
+## Care, evening, and reflection
+
+Care / Connection can represent child care, couple time, elder care, family check-in, pet care, personal connection, or custom. The prototype's personal default is Child play + bedtime from 7:15–9:00 PM.
+
+Evening separates type-aware Care / Connection guidance from a universal routine: prepare for tomorrow, reduce stimulation, wind down, and protect sleep. Reflection uses the selected mode, activities, weekend priority, and Care / Connection context without scoring the user.
+
+## Calendar: Phase 2
+
+Calendar data will represent external constraints. Mode represents internal state. The AI Coach will use both while preserving user control.
+
+```text
+Calendar = external constraints
+Mode = internal user state
+AI Coach = adjusts the daily plan using both
+```
+
+## MVP exclusions
 
 - Real calendar sync
 - Login or account system
-- Backend database
+- Backend database or durable state
 - Push notifications
 - Wearable integration
 - Payment or subscription
@@ -80,16 +70,7 @@ The user's selected mode remains authoritative. A future calendar connection may
 
 ## Current status
 
-The working MVP has validated its core experience:
-
-- The Today page works.
-- Good / Steady / Low mode logic updates module goals correctly.
-- Weekday and weekend recommendations are distinct.
-- Coach / Adjust Flow can revise the full daily plan.
-- Evening supports wind-down and bedtime.
-- Reflection Review captures the end-of-day outcome.
-
-This repository adds the initial documentation and portfolio structure while keeping the working prototype intact.
+Phase 1 product definition and the front-end MVP prototype are complete. Sites version 14 is active, and the final source/build verification passed all five behavior tests. Portfolio screenshots, icon work, and production capabilities remain later work.
 
 ## Documentation
 
@@ -102,18 +83,6 @@ This repository adds the initial documentation and portfolio structure while kee
 - [AI planning logic](prototype/ai-logic.md)
 - [Prompt tests](prototype/prompt-tests.md)
 
-## Future roadmap
-
-The next stages focus on prototype polish, structured AI prompt testing, portfolio packaging, and later integrations. Calendar sync is a future integration rather than an MVP dependency. See [the roadmap](docs/roadmap.md) for the phased plan.
-
 ## Portfolio purpose
 
-This project demonstrates:
-
-- Product discovery and problem framing
-- Human-centered AI product design
-- Scope discipline and MVP prioritization
-- Adaptive planning logic
-- Inclusive design for different household and care contexts
-- Prompt design and scenario-based AI testing
-- Product documentation, decision tracking, and roadmap planning
+This project demonstrates product discovery, human-centered AI design, scope discipline, adaptive planning logic, inclusive care design, scenario-based prompt testing, and behavior-preserving prototype refinement.
