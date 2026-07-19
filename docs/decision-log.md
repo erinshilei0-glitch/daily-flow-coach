@@ -1,51 +1,77 @@
 # Decision Log
 
-This log records product decisions that define the Daily Flow Coach MVP and guide future work.
+This log records accepted product decisions that define the Daily Flow Coach MVP.
 
 ## 1. Use flexible modules instead of strict scheduling
 
 **Decision:** Organize the day around flexible modules rather than minute-by-minute time blocks.
 
-**Rationale:** Capacity and responsibilities change. Modules provide structure while allowing the plan to adapt without making the user feel that the entire day has failed.
-
 **Status:** Accepted
 
 ## 2. Use Good / Steady / Low mode logic
 
-**Decision:** Ask users to select Good, Steady, or Low based on their current internal capacity.
-
-**Rationale:** Three simple modes make adaptation understandable and actionable without requiring a clinical or overly detailed self-assessment.
+**Decision:** Ask users to select Good, Steady, or Low based on current internal capacity.
 
 **Status:** Accepted
 
-## 3. Use different mode logic for weekdays and weekends
+## 3. Use different profiles for weekdays and weekends
 
-**Decision:** Map the same three modes to different weekday and weekend profiles.
-
-**Rationale:** A Good weekday and a Good weekend should not produce the same expectations. Separate profiles prevent work-centric assumptions from dominating personal time.
+**Decision:** Map the three modes to Standard, Flexible, and Minimum Workday or Active, Balanced, and Recovery Weekend.
 
 **Status:** Accepted
 
-## 4. Rename Child Time to a customizable Care / Connection Module
+## 4. Use customizable Care / Connection
 
-**Decision:** Use Care / Connection as the product module and allow the user to customize its meaning.
-
-**Rationale:** A fixed child-focused label excludes people with other relationship and care responsibilities. The customizable module can support child play and bedtime, couple time, elder care, family check-ins, pet care, personal connection, or custom needs.
+**Decision:** Replace fixed Child Time with configurable Child Care, Couple Time, Elder Care, Family Check-in, Pet Care, Personal Connection, or Custom context.
 
 **Status:** Accepted
 
-## 5. Keep user-selected mode after future calendar sync
+## 5. Keep user-selected mode authoritative
 
-**Decision:** Calendar data may inform planning but must not silently change the user's selected mode.
-
-**Rationale:** Calendar events describe external constraints; mode describes internal state. A full calendar does not reveal the user's energy, mood, sleep quality, or capacity.
+**Decision:** AI and future calendar data may inform planning but must not silently change the user's selected mode.
 
 **Status:** Accepted
 
-## 6. Put real calendar sync in Phase 2, not MVP
+## 6. Put calendar sync in Phase 2
 
-**Decision:** Exclude live calendar integration from MVP core and introduce it only after the core planning experience is validated.
+**Decision:** Exclude live calendar integration from the MVP and begin calendar constraint work after the core experience is validated.
 
-**Rationale:** The MVP can test the central value proposition without permissions, provider APIs, synchronization errors, or production data handling. Future calendar data will improve constraint awareness while mode remains the user's internal-state input.
+**Status:** Accepted
+
+## 7. Do not require work or a replacement focus module on weekends
+
+**Decision:** Weekends retain six genuine modules and use a separate optional priority. Recovery Weekend may use No focus today.
+
+**Rationale:** Weekend Focus duplicated existing modules and risked recreating work pressure.
+
+**Status:** Accepted
+
+## 8. Let weekend priorities reweight existing modules
+
+**Decision:** Outing, Care / Connection, Movement, Learning, Recovery, Optional Work, and No focus today adjust emphasis without adding completion requirements.
+
+**Status:** Accepted
+
+## 9. Make Movement and Learning customizable per day
+
+**Decision:** Users may choose different Movement and Learning activities for each day. Mode changes effort, not activity.
+
+**Status:** Accepted
+
+## 10. Make Week a descriptive rhythm view
+
+**Decision:** Past days show outcomes or not reviewed, today shows the active plan, and future days remain flexible. Weekly insight is descriptive and non-scored.
+
+**Status:** Accepted
+
+## 11. Separate dynamic care guidance from the universal Evening Routine
+
+**Decision:** Care / Connection guidance changes with the selected type, while tomorrow preparation, reduced stimulation, wind-down, and sleep protection remain universal.
+
+**Status:** Accepted
+
+## 12. Keep reminders mock-only in the MVP
+
+**Decision:** Settings reminder switches demonstrate future preferences but do not schedule notifications or persist.
 
 **Status:** Accepted
