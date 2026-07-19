@@ -1,32 +1,32 @@
 # Product Architecture
 
-This document describes the current product structure and the intended separation between MVP behavior and future integrations. It is a product architecture, not a claim about a production backend.
+This document describes the validated front-end MVP and the boundary between current prototype behavior and future production capabilities.
 
 ## Page structure
 
-- **Today:** mode selection, daily overview, core modules, and completion state
-- **Coach / Adjust Flow:** full-day replanning based on mode, context, and user input
-- **Evening:** wind-down, bedtime support, and remaining care or connection
-- **Reflection Review:** end-of-day outcome, learning, and a gentle reset
-- **Settings:** mock configuration for preferences and Care / Connection defaults
+- **Today:** day type, mode selection, daily modules, optional weekend priority, and completion state
+- **Week:** selectable day cards, past/today/future context, per-day Movement and Learning, and Your Weekly Rhythm
+- **Coach / Adjust Flow:** full-day replanning using mode, day type, disruption, activities, care context, and weekend priority
+- **Movement:** per-day activity selection with mode-aware effort
+- **Evening:** dynamic Care / Connection guidance plus a universal wind-down routine
+- **Reflection Review:** non-scored end-of-day outcome using the active plan context
+- **Settings:** mock profile, Care / Connection defaults, rhythm times, prototype reminders, and Phase 2 framing
 
-## Core modules
+## Shared planning state
 
-The plan is composed from flexible modules rather than fixed time blocks:
+The prototype keeps shared client-side state for:
 
-1. Work / Main Tasks
-2. AI Learning
-3. Movement
-4. Care / Connection
-5. Evening Routine
-6. Reflection Review
-7. Sleep / Recovery
+- Good / Steady / Low mode
+- Weekday or weekend day type
+- Per-day Movement choice
+- Per-day Learning choice
+- Care / Connection type, label, and time
+- Optional weekend priority
+- Completed modules and reflection inputs
 
-Each module can receive a different goal, emphasis, or minimum depending on the day type and selected mode.
+The same selections flow through Today, Week, Coach, Movement, Evening, and Reflection. State is intentionally in memory and resets after refresh.
 
 ## Weekday and weekend logic
-
-The planner first identifies the day type, then maps the selected mode to a plan profile.
 
 | Mode | Weekday profile | Weekend profile |
 | --- | --- | --- |
@@ -34,64 +34,66 @@ The planner first identifies the day type, then maps the selected mode to a plan
 | Steady | Flexible Workday | Balanced Weekend |
 | Low | Minimum Workday | Recovery Weekend |
 
-This separation prevents workday assumptions from being applied to weekends and gives recovery and relationships appropriate weight.
+Weekdays include Work / Main Tasks. Weekends keep six genuine modules and offer a separate optional priority. Recovery Weekend may use No focus today. Weekend work is never assumed.
 
-## Care / Connection module
+Selected weekend priorities reweight existing modules:
 
-Care / Connection is a customizable module rather than a fixed “Child Time” feature. Supported examples include:
+- Outing can satisfy Movement
+- Care / Connection becomes protected
+- Movement or Learning receives gentle additional emphasis
+- Recovery makes optional expectations lighter
+- Optional Work is treated as an added commitment
+- No focus today adds nothing
 
-- Child play and bedtime
-- Couple time
-- Elder care
-- Family check-in
-- Pet care
-- Personal connection
-- Custom
+## Movement and Learning
 
-The module stores or accepts a user-facing label and planning context. Erin's personal default is child play and bedtime, usually around 7:15–8:00 PM, but that default is not universal product behavior.
+Movement and Learning are selected per day.
 
-## Coach / Adjust Flow logic
+Movement options include Baduanjin, Indoor Walk, Outdoor Walk, Stretching, Mobility, Strength, Yoga, Recreation, and Custom.
 
-Coach / Adjust Flow operates across the full daily plan:
+Learning options include Reading, Studying, Online Course, AI Learning, Research, Skill Practice, Creative Learning, and Custom.
 
-1. Read the current day type and user-selected mode.
-2. Consider completed, remaining, and disrupted modules.
-3. Protect essentials such as care commitments and recovery.
-4. Reduce, reorder, or simplify module goals as needed.
-5. Return a realistic revised plan with supportive reasoning.
-6. Preserve the user's selected mode unless the user changes it.
+Mode changes the size or optionality of the expectation, not the selected activity.
+
+## Week model
+
+Week is a descriptive rhythm view rather than a strict weekly schedule.
+
+- Past days show recorded or gently unreviewed states
+- Today shows the active plan
+- Future days use flexible intentions without requiring a mode in advance
+- Your Weekly Rhythm describes patterns without scoring, streaks, or failure language
+
+## Care / Connection and Evening
+
+Care / Connection supports Child Care, Couple Time, Elder Care, Family Check-in, Pet Care, Personal Connection, and Custom.
+
+Evening contains:
+
+1. Type-aware Care / Connection guidance using the selected label and time
+2. A universal routine for tomorrow preparation, reduced stimulation, wind-down, and sleep protection
+
+Changing the Care / Connection setting updates the relevant prototype views without retaining childcare-specific wording for other types.
+
+## Coach logic
+
+Coach / Adjust Flow:
+
+1. Reads day type and user-selected mode.
+2. Reads shared Movement, Learning, Care / Connection, and weekend-priority context.
+3. Considers completed, remaining, and disrupted modules.
+4. Protects genuine commitments and recovery.
+5. Reduces, reorders, combines, defers, or drops optional work.
+6. Returns a concise revised plan without silently changing mode.
+
+## Reminder controls
+
+Settings reminder switches are visual prototype controls only. They do not schedule device notifications or persist after refresh. Learning nudge is off by default and labeled Good-mode days only.
 
 ## Calendar sync: Phase 2
 
-Calendar data represents external constraints such as meetings, appointments, therapy, and family events. Mode represents internal state such as energy, sleep quality, mood, and capacity.
+Calendar represents external constraints; mode represents internal state. Future calendar input may reserve unavailable time and improve feasibility, but it cannot infer capacity or replace the user's selected mode.
 
-```text
-Calendar = external constraints
-Mode = internal user state
-AI Coach = adjusts the daily plan using both
-```
+## MVP boundary
 
-Calendar sync is not required for the MVP. In a later phase, calendar events should inform available windows and constraint handling without overriding the user's mode.
-
-## MVP architecture
-
-The MVP is intentionally prototype-oriented:
-
-- Client-side screens and interactions
-- Local or in-memory state sufficient to demonstrate the experience
-- Deterministic mode and day-type mappings
-- Mock settings and AI coaching behavior
-- No required identity, database, payments, notifications, or third-party integrations
-
-## Future architecture
-
-Future production work may introduce:
-
-- Calendar provider integration and permission handling
-- A service layer for AI planning and prompt orchestration
-- Persistent preferences, history, and reflection data
-- Authentication and privacy controls
-- Notification and wearable integrations
-- Subscription or shared-family capabilities
-
-These additions should follow validation, not precede it. The product must continue to function around the core relationship between user-selected mode, external constraints, and adaptive coaching.
+The MVP uses deterministic mappings, mock content, and in-memory client state. It has no required identity, database, production AI service, payments, notifications, or third-party integrations.
