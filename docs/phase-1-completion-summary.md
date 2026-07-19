@@ -1,83 +1,55 @@
 # Phase 1 Completion Summary
 
-**Review date:** July 18, 2026  
+**Review date:** July 19, 2026  
 **Phase:** Product Discovery and MVP Definition  
-**Status:** Product definition and prototype wording verified; final closeout items pending
+**Status:** Complete
 
 ## Outcome
 
-Phase 1 established Daily Flow Coach as an AI-assisted, flexible daily planning product that adapts expectations to the user's real capacity without relying on strict minute-by-minute scheduling.
+Phase 1 established and validated Daily Flow Coach as an AI-assisted, flexible planning experience that adapts to real capacity without relying on rigid scheduling.
 
-The phase defined the problem, target users, product principles, planning model, MVP boundaries, AI behavior, and future role of calendar constraints.
+## Validated product model
 
-## Decisions completed
-
-- Use flexible modules instead of strict schedules
-- Use Good / Steady / Low as the user-selected capacity modes
-- Apply different weekday and weekend planning profiles
-- Replace fixed Child Time with customizable Care / Connection
-- Keep Calendar Sync outside the MVP and begin calendar work in Phase 2
-- Treat calendar data as external constraints
-- Treat mode as the user's internal state
-- Let the AI Coach adjust the plan using both while preserving user control
-
-## MVP definition completed
-
-The MVP includes:
-
-- Today dashboard
-- Good / Steady / Low mode selection
-- Weekday and weekend planning logic
-- Core module checklist
-- Care / Connection customization
-- Coach / Adjust Flow
-- Evening routine
-- Reflection Review
-- AI Learning
-- Settings mockup
-
-The MVP excludes live calendar sync, accounts, a backend database, push notifications, wearable integration, payments, and multi-user family sharing.
+- Flexible modules replace minute-by-minute scheduling
+- Good / Steady / Low represent internal capacity
+- Weekdays and weekends use different profiles
+- Weekends do not assume work
+- Optional weekend priorities reweight existing modules
+- Movement and Learning can vary by day
+- Week shows a descriptive rhythm, not a performance score
+- Care / Connection is inclusive and customizable
+- Evening separates dynamic care guidance from universal wind-down
+- Coach adjusts the whole plan while preserving mode
+- Reflection is non-scored and nonjudgmental
+- Calendar constraints begin in Phase 2
 
 ## Prototype verification
 
-The refreshed prototype source and rendered build were reviewed against the locked product definition.
-
-| Area | Review result |
+| Area | Result |
 | --- | --- |
-| Weekday labels | Verified: Standard, Flexible, and Minimum Workday |
-| Weekend labels | Verified: Active, Balanced, and Recovery Weekend |
-| Core module wording | Verified: Care / Connection replaces the legacy Child time module |
-| Settings customization | Verified: child care, couple time, elder care, family check-in, pet care, personal connection, and custom options |
-| Calendar positioning | Verified: Calendar Sync is Phase 2 and calendar constraints remain distinct from mode |
-| User control | Verified: the selected mode remains primary |
-| Rendered build | Verified: no legacy Flexible Day or Child time output |
-| Smoke tests | Verified: two of two tests pass |
-| Hosted prototype | Active: [Open the live prototype](https://daily-flow-coach-erin.erin-shi-lei0.chatgpt.site) |
+| Today and mode mappings | Verified |
+| Weekday/weekend profiles | Verified |
+| Optional weekend priorities | Verified |
+| Per-day Movement and Learning | Verified |
+| Week weekly-rhythm model | Verified |
+| Dynamic Care / Connection | Verified |
+| Universal Evening Routine | Verified |
+| Coach and Reflection consistency | Verified |
+| Rendered/source tests | Five of five passed |
+| Hosted prototype | Sites version 14 active |
 
-## Remaining closeout issues
+[Open the live prototype](https://daily-flow-coach-erin.erin-shi-lei0.chatgpt.site)
 
-1. The personal Care / Connection default ends at 9:00 PM in the prototype, while the product documentation records 8:00 PM.
-2. Initial portfolio screenshots and a project icon have not yet been added to this repository.
+## MVP limitations
 
-These are closeout issues, not changes to the product definition.
+- State is stored only in browser memory and resets after refresh
+- Past outcomes are mock or unreviewed states
+- Future days intentionally do not require advance mode selection
+- Reminder switches do not send notifications
+- No accounts, backend, production AI service, or live calendar sync
 
-## Phase 1 exit criteria
+## Phase 1 closure
 
-- [ ] Align the default Care / Connection window with the documented decision
-- [x] Rebuild the prototype from the updated source
-- [x] Confirm the rendered weekday/weekend labels and Care / Connection wording
-- [x] Rerun the prototype verification successfully
-- [x] Connect the prototype deployment to this repository
-- [ ] Add initial screenshots and a project icon
+The earlier Care / Connection time mismatch is resolved by documenting the prototype's personal default as 7:15–9:00 PM. Screenshots, icon work, and expanded imagery are portfolio follow-up work rather than blockers to product-definition completion.
 
-## Phase 2 readiness
-
-Phase 2 should begin after the remaining closeout items are resolved or explicitly accepted as portfolio follow-up work.
-
-Its focus is Calendar Constraint Discovery and Prototype Integration:
-
-- Calendar represents external constraints
-- Mode represents internal user state
-- The AI Coach considers both
-- The user-selected mode remains authoritative
-- Manual planning continues when calendar access is unavailable or declined
+Phase 2 can begin with Calendar Constraint Discovery and Prototype Integration.
