@@ -1,52 +1,50 @@
 # Milestones
 
-## Completed
+## Phase 1 — Complete
 
-- [x] Product vision defined
-- [x] Flexible daily module model established
-- [x] Good / Steady / Low mode logic created
-- [x] Weekday / weekend logic added
-- [x] Customizable Care / Connection module created
-- [x] Prototype screens created
-- [x] MVP core logic validated
-- [x] GitHub repository initialized
-- [x] Initial documentation and portfolio structure added
-- [x] Calendar sync positioned consistently as Phase 2, outside the MVP
+- [x] Product vision and principles defined
+- [x] Flexible module model established
+- [x] Good / Steady / Low logic validated
+- [x] Weekday and weekend profiles implemented
+- [x] Weekend work removed as a default expectation
+- [x] Optional weekend priorities implemented without adding a module
+- [x] Per-day Movement and Learning choices implemented
+- [x] Week redesigned as a descriptive weekly rhythm
+- [x] Care / Connection customization implemented
+- [x] Evening split into dynamic care guidance and universal routine
+- [x] Coach, Reflection, and Settings aligned with shared state
+- [x] Calendar sync positioned as Phase 2
+- [x] Live prototype linked from this repository
+- [x] Production build and five behavior tests verified
+- [x] Phase 1 completion summary published
+- [x] Phase 1 marked complete
 
-## Validation represented by the current MVP
+## Current MVP validation
 
-- The Today page works.
-- Mode changes update module goals.
-- Weekday and weekend profiles use distinct mode mappings.
-- Coach / Adjust Flow revises the full daily plan.
-- Evening supports wind-down and bedtime.
-- Reflection Review captures the end-of-day outcome.
-- User-selected mode remains the source of internal capacity.
+- Sites version 14 is active.
+- Weekdays and weekends use distinct mode profiles.
+- Weekends contain six modules plus an optional priority.
+- Movement and Learning selections remain consistent across connected views.
+- Outing can satisfy Movement without duplicate exercise.
+- Non-child Care / Connection types do not retain childcare wording.
+- Week uses past, today, and future states without advance scheduling pressure.
+- Reminder switches are mock controls and do not send notifications.
+- All choices remain in memory and reset after refresh.
 
-## Phase 1 closeout milestones
-
-- [ ] Align the default Care / Connection end time with the documented decision
-- [x] Rebuild the prototype so rendered output matches the updated source
-- [x] Confirm final Care / Connection and weekday/weekend wording in the working prototype
-- [x] Rerun the rendered prototype smoke tests successfully
-- [x] Connect the working prototype deployment to this repository
-- [ ] Add initial screenshots and a project icon
-- [x] Publish the Phase 1 completion summary
-- [ ] Mark Phase 1 complete
-
-## Phase 2 milestones: Calendar Constraint Discovery and Prototype Integration
+## Phase 2 — Calendar Constraint Discovery
 
 - [ ] Define supported calendar event and constraint types
-- [ ] Document calendar permissions, privacy, consent, and data boundaries
-- [ ] Prototype calendar constraints in the daily planning flow
-- [ ] Verify calendar data does not silently change Good / Steady / Low mode
+- [ ] Document permissions, privacy, consent, and data boundaries
+- [ ] Prototype calendar constraints in daily planning
+- [ ] Verify calendar data never silently changes mode
 - [ ] Test busy, light, conflicting, and unavailable-calendar scenarios
 - [ ] Define manual fallback and synchronization-error behavior
-- [ ] Evaluate a limited live calendar connection after prototype validation
+- [ ] Evaluate a limited live calendar connection
 
-## Later milestones
+## Portfolio and later work
 
-- [ ] Run and document structured AI prompt tests
-- [ ] Complete a final behavior-preserving prototype polish pass
-- [ ] Assemble a concise portfolio case study
-- [ ] Define requirements for persistence, authentication, and production hardening
+- [ ] Capture final screenshots
+- [ ] Create a project icon and illustration direction
+- [ ] Run structured AI prompt evaluation
+- [ ] Assemble the final portfolio case study
+- [ ] Define persistence, authentication, and production hardening requirements
