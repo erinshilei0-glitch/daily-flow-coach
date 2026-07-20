@@ -31,15 +31,35 @@
 - Reminder switches are mock controls and do not send notifications.
 - All choices remain in memory and reset after refresh.
 
-## Phase 2 — Calendar Constraint Discovery
+## Phase 2A — Calendar Constraint Discovery — Complete
 
-- [ ] Define supported calendar event and constraint types
-- [ ] Document permissions, privacy, consent, and data boundaries
-- [ ] Prototype calendar constraints in daily planning
-- [ ] Verify calendar data never silently changes mode
-- [ ] Test busy, light, conflicting, and unavailable-calendar scenarios
-- [ ] Define manual fallback and synchronization-error behavior
-- [ ] Evaluate a limited live calendar connection
+- [x] Define supported event and constraint types
+- [x] Define fixed, flexible, protected, uncertain, and ignored treatment
+- [x] Document preparation, transition, decompression, and travel buffers
+- [x] Document permissions, privacy, consent, minimization, and prohibited inferences
+- [x] Verify calendar data never silently changes mode
+- [x] Define stale, partial, disconnected, unavailable, and manual fallbacks
+- [x] Define six-profile scenarios and acceptance assertions
+- [x] Accept sample-only preview decisions and non-goals
+
+## Phase 2B — Sample Calendar Context Preview — Next
+
+- [ ] Build a separate single-session preview with hard-coded sample events
+- [ ] Add per-event review and correction controls
+- [ ] Add before-and-after module proposals with explanation traces
+- [ ] Add explicit one-time event-to-module fulfillment
+- [ ] Show late-event and protected-sleep tension without silently resolving it
+- [ ] Add reset and fallback simulation
+- [ ] Test all six profiles and cross-profile edge cases
+- [ ] Confirm users understand mode as internal state and calendar as external constraints
+- [ ] Decide whether evidence supports provider evaluation
+
+## Phase 2C — Provider Readiness — Not authorized yet
+
+- [ ] Review sample-preview evidence
+- [ ] Decide whether free/busy information is sufficient
+- [ ] Compare Google Calendar and Outlook against accepted criteria
+- [ ] Make a separate go/no-go decision for a limited live connection
 
 ## Portfolio and later work
 
