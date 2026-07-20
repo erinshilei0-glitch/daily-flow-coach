@@ -12,7 +12,7 @@ The smallest safe Phase 2 experiment is a **mock Calendar Context preview** that
 
 Good / Steady / Low remains the user's authoritative capacity signal. Calendar events affect feasibility, available windows, sequence, and suggested buffers, but **calendar density is never evidence of capacity**. The Coach must not silently change mode, diagnose the user from an event, turn every open window into work, or treat a crowded calendar as personal failure.
 
-The prototype should use only hard-coded sample events and in-memory choices. Its useful output is an explainable proposal such as: 鈥淵ou chose Steady. Two fixed commitments narrow the afternoon, so I shortened the Work goal and kept your Indoor Walk available for the evening.鈥?Every proposal is editable and reversible.
+The prototype should use only hard-coded sample events and in-memory choices. Its useful output is an explainable proposal such as: “You chose Steady. Two fixed commitments narrow the afternoon, so I shortened the Work goal and kept your Indoor Walk available for the evening.” Every proposal is editable and reversible.
 
 
 ## Accepted prototype decisions
@@ -30,19 +30,20 @@ The prototype should use only hard-coded sample events and in-memory choices. It
 
 1. The user chooses Good, Steady, or Low. Calendar input never selects, upgrades, or downgrades it.
 2. The profile is derived from mode plus day type:
-   - Good weekday 鈫?Standard Workday
-   - Steady weekday 鈫?Flexible Workday
-   - Low weekday 鈫?Minimum Workday
-   - Good weekend 鈫?Active Weekend
-   - Steady weekend 鈫?Balanced Weekend
-   - Low weekend 鈫?Recovery Weekend
+   - Good weekday → Standard Workday
+   - Steady weekday → Flexible Workday
+   - Low weekday → Minimum Workday
+   - Good weekend → Active Weekend
+   - Steady weekend → Balanced Weekend
+   - Low weekend → Recovery Weekend
 3. Accepted fixed commitments constrain available time. Flexible commitments are candidates for user-approved movement, not silent rescheduling.
 4. The Coach explains which constraints shaped a suggestion and marks uncertainty plainly.
 5. Movement and Learning keep the activity selected for that day. Calendar context may change effort, duration, or suggested window, not the activity itself.
 6. Care / Connection stays user-defined. Event names never determine a care type or relationship.
 7. Weekends do not assume work. Calendar events cannot create a weekend Work default or choose a weekend priority.
 8. Week remains descriptive and non-scored. Busyness, free time, and completed events do not create a score.
-9. Absence of calendar data means 鈥渃alendar context unavailable,鈥?not 鈥渢he day is free.鈥?10. A user can ignore, correct, hide, or remove calendar context without losing access to the core plan.
+9. Absence of calendar data means “calendar context unavailable,” not “the day is free.”
+10. A user can ignore, correct, hide, or remove calendar context without losing access to the core plan.
 
 ### Working definitions
 
@@ -61,10 +62,10 @@ Each sample event needs only the fields required to test product behavior:
 | Field | Discovery behavior |
 | --- | --- |
 | Type | Meeting, appointment, therapy, travel, family event, care commitment, blocked time, or all-day event |
-| Display label | A sample title or privacy-safe label such as 鈥淎ppointment鈥?|
+| Display label | A sample title or privacy-safe label such as “Appointment” |
 | Start and end | Local time, or an all-day flag |
 | Status | Confirmed, tentative, canceled, or declined |
-| Commitment | Fixed, flexible, or 鈥渞eview needed鈥?|
+| Commitment | Fixed, flexible, or “review needed” |
 | Recurrence | None, recurring series, or edited occurrence |
 | Buffers | Separate prep, transition/decompression, and travel values |
 | Detail quality | Complete, incomplete, or stale |
@@ -80,15 +81,15 @@ No attendee list, notes, conference URL, location history, contact graph, or eve
 | Appointment | Fixed by default | Reserve event and confirmed buffers | Protect surrounding transition; offer a lighter sequence | Infer health, urgency, or emotional impact |
 | Therapy | Private fixed appointment by default | Reserve event plus user-selected transition/decompression | Use a neutral private label; offer gentler sequencing if the user has chosen a buffer | Diagnose, infer mental health state, expose the title, or lower mode |
 | Travel | Fixed when dates/times are known; otherwise uncertain | Reserve explicit travel period and confirmed buffers | Reduce fragmentation; surface timezone or incomplete-time uncertainty | Infer route, commute, purpose, safety, or fatigue without user input |
-| Family event | Review needed unless explicitly fixed | Reserve only after user confirmation | Ask 鈥淚s this time fixed or flexible?鈥? preserve chosen Care / Connection treatment | Infer relationship, caregiving role, obligation, or emotional meaning |
+| Family event | Review needed unless explicitly fixed | Reserve only after user confirmation | Ask “Is this time fixed or flexible?”; preserve chosen Care / Connection treatment | Infer relationship, caregiving role, obligation, or emotional meaning |
 | Care commitment | Fixed or protected only when the user says so | Reserve accepted time and buffers | Protect it and flex optional modules around it | Infer the care recipient or map it to a Care / Connection subtype automatically |
-| Blocked time | Busy by default, with private details hidden | Reserve the block | Say 鈥淵ou have blocked time鈥? allow include/ignore | Guess what the block contains or convert it into a task |
+| Blocked time | Busy by default, with private details hidden | Reserve the block | Say “You have blocked time”; allow include/ignore | Guess what the block contains or convert it into a task |
 | All-day event | Context only until blocking intent is known | Does not consume the full day by default | Ask whether it blocks time, changes location, or is informational | Treat birthdays, holidays, reminders, or banners as full-day unavailability |
 | Confirmed fixed event | Hard constraint for this proposal | Reserve event plus confirmed buffers | Adapt module scope and sequence; name the constraint neutrally | Suggest overlap or silent cancellation |
 | Confirmed flexible event | Movable only with user approval | Mark as a candidate, not free time | Offer one or more possible windows and ask before applying | Move, shorten, or delete it automatically |
-| Tentative event | Uncertain constraint | Show a possible hold; do not treat as settled | Provide 鈥渋f it happens / if it does not鈥?options | Present the day as definitely unavailable |
+| Tentative event | Uncertain constraint | Show a possible hold; do not treat as settled | Provide “if it happens / if it does not” options | Present the day as definitely unavailable |
 | Canceled event | Excluded | Release its reserved time | Note that the time opened up without filling it automatically | Preserve old pressure or add replacement tasks |
-| Declined event | Excluded by default | No reserved time | Hide it or show a muted 鈥渄eclined鈥?trace in review | Treat it as an obligation |
+| Declined event | Excluded by default | No reserved time | Hide it or show a muted “declined” trace in review | Treat it as an obligation |
 | Recurring event | Evaluate the occurrence, not only the series | Reserve the current instance when confirmed | Respect skipped, moved, or edited occurrences | Apply one exception to every occurrence |
 | Overlapping fixed events | Unresolved conflict | Count the union of occupied time; flag conflict | Ask the user to review; build a plan that does not assume both are feasible | Double-count duration, choose which event wins, or blame the user |
 | Fixed event overlapping flexible event | Fixed event takes scheduling precedence | Preserve fixed time; flexible item remains unresolved | Offer to move the flexible item with confirmation | Move it silently |
@@ -114,10 +115,11 @@ The Coach may not:
 - use the number or duration of events to infer Good, Steady, or Low;
 - recommend a mode change solely because the calendar is dense or sparse;
 - pack every gap with a module;
-- make an optional module mandatory to 鈥渕ake up鈥?for lost time;
+- make an optional module mandatory to “make up” for lost time;
 - describe overlap, lateness, or overload as failure.
 
-If confirmed commitments plus user-protected buffers make the profile plan infeasible, the Coach should preserve the selected mode label and present a softer version of that profile. Example: 鈥淵our mode is still Good. With the fixed afternoon commitments, a smaller Standard Workday plan may fit better today.鈥?
+If confirmed commitments plus user-protected buffers make the profile plan infeasible, the Coach should preserve the selected mode label and present a softer version of that profile. Example: “Your mode is still Good. With the fixed afternoon commitments, a smaller Standard Workday plan may fit better today.”
+
 ## Preparation, transition, decompression, and travel buffers
 
 Buffers must be visible objects, not hidden arithmetic.
@@ -149,7 +151,7 @@ For discovery, **calendar overload** means there is not enough unreserved time t
 
 ### Cancellation and changes
 
-A canceled event releases a constraint, but the Coach does not automatically fill the opening. A moved occurrence is evaluated at its new time. A series exception affects only that occurrence. If a previously used event changes, the proposal is marked 鈥渘eeds refresh鈥?until the user reviews it.
+A canceled event releases a constraint, but the Coach does not automatically fill the opening. A moved occurrence is evaluated at its new time. A series exception affects only that occurrence. If a previously used event changes, the proposal is marked “needs refresh” until the user reviews it.
 
 ### Tentative and incomplete details
 
@@ -187,7 +189,8 @@ Rules higher in the list constrain lower rules. A calendar event can make a modu
 
 ### Consent rules
 
-1. The mock prototype clearly says 鈥淪ample events only 鈥?no calendar is connected.鈥?2. Any later provider experiment requires separate, informed opt-in before data is read.
+1. The mock prototype clearly says “Sample events only — no calendar is connected.”
+2. Any later provider experiment requires separate, informed opt-in before data is read.
 3. Permission must be revocable, and the product must remain usable after decline or disconnect.
 4. Event inclusion, private-title display, and Coach use are separate understandable choices where technically possible.
 5. A permission screen must state what is read, why it is used, how long it is retained, and what actions the Coach cannot take.
@@ -209,21 +212,21 @@ The product must not infer:
 - social closeness or obligation from invitees;
 - attendance or completion from an event's presence on the calendar.
 
-The Coach uses the minimum neutral representation necessary: for example, 鈥渇ixed appointment, 2:00鈥?:00 PM,鈥?not an interpretation of why it matters.
+The Coach uses the minimum neutral representation necessary: for example, “fixed appointment, 2:00–3:00 PM,” not an interpretation of why it matters.
 
 ## Privacy and fallback decision rules
 
 | State | User-facing behavior | Planning behavior |
 | --- | --- | --- |
-| User declines access | 鈥淭hat鈥檚 completely fine. You can keep planning without calendar context.鈥?| Use mode, day type, and manual changes only |
+| User declines access | “That’s completely fine. You can keep planning without calendar context.” | Use mode, day type, and manual changes only |
 | Calendar disconnected | Explain that calendar context is off; provide a reconnect action only if requested | Remove calendar-derived claims; keep the core plan intact |
 | Permission revoked or insufficient | Name the unavailable capability without pressure | Fall back to manual constraints or no calendar context |
-| Data stale | Show 鈥淟ast updated鈥︹€?and a neutral stale label | Do not claim current availability; let the user refresh or continue |
+| Data stale | Show “Last updated…” and a neutral stale label | Do not claim current availability; let the user refresh or continue |
 | Partial sync | Identify the calendars or interval that could not be read | Use only clearly labeled available data; never imply completeness |
-| Service unavailable | 鈥淐alendar context isn鈥檛 available right now. Your plan still works.鈥?| Continue mode-led planning; offer manual blocked-time entry in a later prototype |
+| Service unavailable | “Calendar context isn’t available right now. Your plan still works.” | Continue mode-led planning; offer manual blocked-time entry in a later prototype |
 | Event details hidden | Show a private busy block | Respect the interval without asking for the title |
 | Event incomplete | Ask only for the missing field that materially changes the proposal | Keep it uncertain until corrected |
-| No events returned | Say 鈥淣o calendar constraints were found,鈥?not 鈥淵ou are free鈥?| Preserve normal plan flexibility |
+| No events returned | Say “No calendar constraints were found,” not “You are free” | Preserve normal plan flexibility |
 | Timezone uncertain | Flag the affected event and avoid exact sequencing around it | Do not guess the local time |
 | User ignores an event | Confirm it is excluded from this proposal | Do not repeatedly reintroduce it during the same planning cycle |
 
@@ -236,13 +239,13 @@ The discovery prototype is a separate, clearly labeled preview using hard-coded 
 ### 1. Entry from Settings
 
 Card title: **Calendar Context Preview**  
-Copy: 鈥淪ee how sample commitments could help shape a gentler, more realistic day. Nothing connects to your calendar.鈥? 
+Copy: “See how sample commitments could help shape a gentler, more realistic day. Nothing connects to your calendar.”  
 Action: **Try sample day**
 
 ### 2. Consent and boundary explainer
 
 Title: **Your mode stays yours**  
-Copy: 鈥淐alendar events can show when time is constrained. They cannot tell us your energy, mood, or recovery needs, and they will never change Good, Steady, or Low for you.鈥? 
+Copy: “Calendar events can show when time is constrained. They cannot tell us your energy, mood, or recovery needs, and they will never change Good, Steady, or Low for you.”  
 Actions: **Continue with sample events** / **Not now**
 
 ### 3. Choose a sample
@@ -264,24 +267,30 @@ Each event card shows time, privacy-safe label, status, fixed/flexible/review-ne
 
 Supportive copy:
 
-- 鈥淒oes this need to happen at this time?鈥?- 鈥淭his event is tentative, so we鈥檒l keep the plan flexible around it.鈥?- 鈥淲e only know the start time. Add an end time, or leave it uncertain.鈥?- 鈥淭his all-day item may be informational. Does it actually block your day?鈥?
+- “Does this need to happen at this time?”
+- “This event is tentative, so we’ll keep the plan flexible around it.”
+- “We only know the start time. Add an end time, or leave it uncertain.”
+- “This all-day item may be informational. Does it actually block your day?”
+
 ### 5. Preview the adapted flow
 
 Show a before/after comparison by module, not an hour-by-hour optimized schedule. Every change includes a reason chip such as **Fixed appointment**, **Travel buffer**, **Tentative hold**, or **Protected care**.
 
 Suggested summary:
 
-> 鈥淵ou chose Low, so Recovery Weekend remains the guide. The afternoon outing is fixed, and you protected Care / Connection. I kept Movement light, left Learning optional, and protected an unfilled recovery window.鈥?
-Actions: **Use this sample plan**, **Adjust**, and **Keep my original plan**. In discovery, 鈥淯se鈥?changes only preview state and resets on refresh.
+> “You chose Low, so Recovery Weekend remains the guide. The afternoon outing is fixed, and you protected Care / Connection. I kept Movement light, left Learning optional, and protected an unfilled recovery window.”
+
+Actions: **Use this sample plan**, **Adjust**, and **Keep my original plan**. In discovery, “Use” changes only preview state and resets on refresh.
 
 ### 6. Coach explanation
 
-The Coach can answer 鈥淲hy did this change?鈥?with a concise trace:
+The Coach can answer “Why did this change?” with a concise trace:
 
-> 鈥淵our mode did not change. I used the fixed 2:00 PM appointment and the 20-minute buffer you approved. That made the earlier Learning window less practical, so I moved the suggestion and reduced its scope.鈥?
+> “Your mode did not change. I used the fixed 2:00 PM appointment and the 20-minute buffer you approved. That made the earlier Learning window less practical, so I moved the suggestion and reduced its scope.”
+
 ### 7. Fallback simulator and reset
 
-Let the user switch the sample calendar to stale, partial, disconnected, or unavailable and observe that the core plan remains usable. End with **Reset sample** and the persistent label **Prototype only 路 sample events 路 no calendar connected**.
+Let the user switch the sample calendar to stale, partial, disconnected, or unavailable and observe that the core plan remains usable. End with **Reset sample** and the persistent label **Prototype only · sample events · no calendar connected**.
 
 ## Scenario matrix
 
@@ -289,8 +298,8 @@ These scenarios validate all six profiles. Each must be run with the named mode 
 
 | Profile | Sample constraints | Expected adaptation | Must remain true |
 | --- | --- | --- | --- |
-| Standard Workday (Good weekday) | 9:00 meeting, 1:00鈥?:00 fixed appointment, flexible 30-minute admin block | Keep a meaningful Work goal in available windows; offer to move admin; preserve chosen Movement and Learning activities with Good-mode effort where feasible | Good remains selected; meeting density is not praised or used as proof of capacity |
-| Flexible Workday (Steady weekday) | Two confirmed meetings, one tentative late meeting, 10-minute transitions | Reduce fragmentation, show 鈥渨ith / without tentative meeting鈥?only if useful, and keep optional modules light | Steady remains selected; no tentative event is presented as certain |
+| Standard Workday (Good weekday) | 9:00 meeting, 1:00–2:00 fixed appointment, flexible 30-minute admin block | Keep a meaningful Work goal in available windows; offer to move admin; preserve chosen Movement and Learning activities with Good-mode effort where feasible | Good remains selected; meeting density is not praised or used as proof of capacity |
+| Flexible Workday (Steady weekday) | Two confirmed meetings, one tentative late meeting, 10-minute transitions | Reduce fragmentation, show “with / without tentative meeting” only if useful, and keep optional modules light | Steady remains selected; no tentative event is presented as certain |
 | Minimum Workday (Low weekday) | Fixed therapy label hidden, 20-minute decompression, overlapping flexible task block | Protect appointment and buffer; offer to move the flexible block; retain only essential Work continuity and gentle modules | Low was user-chosen, not inferred; no health or mood inference |
 | Active Weekend (Good weekend) | Morning outing, all-day birthday banner, optional Learning priority | Ask whether the banner blocks time; allow outing to satisfy Movement; fit the chosen Learning priority without adding Work | No default Work; Good remains selected; birthday does not consume the full day automatically |
 | Balanced Weekend (Steady weekend) | Protected family event, flexible home block, canceled evening plan | Preserve family time, offer a window for the home block, leave canceled time open unless the user chooses otherwise | Weekend priority remains user-selected; open time is not auto-filled |
