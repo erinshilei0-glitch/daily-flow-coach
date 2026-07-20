@@ -18,23 +18,42 @@ The validated Phase 1 outcome includes:
 
 Calendar sync remains explicitly excluded from Phase 1.
 
-## Phase 2: Calendar Constraint Discovery and Prototype Integration
+## Phase 2A: Calendar Constraint Discovery — Complete
 
-**Goal:** Add calendar awareness as an external planning input while keeping user-selected mode authoritative.
+**Goal:** Define calendar context as an external feasibility input while keeping user-selected mode authoritative.
 
-- Define supported events, constraints, and availability rules
-- Document permission, privacy, consent, and failure states
-- Prototype meetings, appointments, travel, therapy, and family events
-- Test calendar-informed adjustments across all six day profiles
-- Confirm calendar data never silently changes mode
-- Preserve manual planning when calendar access is unavailable or declined
-- Evaluate a limited live connection only after the interaction model is validated
+- Event types, uncertainty, buffers, privacy, consent, and fallback behavior documented
+- Six-profile scenario matrix and acceptance assertions defined
+- Sample-only prototype boundaries accepted
+- Live providers, credentials, persistence, and calendar write actions remain out of scope
 
 ```text
 Calendar = external constraints
 Mode = internal user state
 AI Coach = adjusts the daily plan using both
 ```
+
+## Phase 2B: Sample Calendar Context Preview — Next
+
+**Goal:** Validate the interaction model without connecting a real calendar.
+
+- Build a separate, single-session preview using hard-coded sample events
+- Review event instances as fixed, flexible, protected, uncertain, or ignored
+- Keep preparation, transition, decompression, and travel buffers distinct
+- Treat private busy blocks as uncertain until the user confirms their effect
+- Allow explicit one-time event fulfillment for Movement, Learning, or Care / Connection
+- Show sleep-versus-late-event conflicts as unresolved tensions
+- Start with free/busy-style information without requiring event titles
+- Test all six profiles and calendar failure states
+- Keep every proposal explainable and reversible without silently changing mode
+
+## Phase 2C: Provider Readiness Decision — Later
+
+- Review evidence from the sample preview
+- Decide whether calendar context improves realism without increasing pressure
+- Determine whether free/busy information is sufficient
+- Compare Google Calendar and Outlook using user fit, privacy, consent, fidelity, failure handling, and implementation cost
+- Require a separate authorization before any limited live connection
 
 ## Phase 3: AI Validation and Product Hardening
 
